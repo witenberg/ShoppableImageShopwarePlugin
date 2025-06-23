@@ -1,0 +1,8 @@
+{% block element_shoppable_image %}
+    {#
+        This template is not meant for HTML rendering.
+        It serializes the data prepared by the CmsElementResolver into a JSON object
+        for the headless frontend to consume.
+    #}
+    {{ slot.data|json_encode|raw }}
+{% endblock %}

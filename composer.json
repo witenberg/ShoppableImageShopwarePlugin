@@ -1,0 +1,27 @@
+{
+    "name": "shoppable-image/shoppable-image",
+    "description": "shoppable-image/shoppable-image",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "ShoppableImage\\ShoppableImage",
+        "label": {
+            "de-DE": "Skeleton plugin",
+            "en-GB": "Skeleton plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "ShoppableImage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShoppableImage\\Tests\\": "tests/"
+        }
+    }
+}

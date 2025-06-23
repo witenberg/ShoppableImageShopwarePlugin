@@ -1,0 +1,23 @@
+{% block sw_cms_element_shoppable_image %}
+<div class="sw-cms-el-shoppable-image">
+    {% block sw_cms_element_shoppable_image_media_wrapper %}
+    <div class="sw-cms-el-shoppable-image__media-wrapper">
+        {% block sw_cms_element_shoppable_image_media %}
+        <img v-if="element.data.media" :src="element.data.media.url" alt="Shoppable Image" class="sw-cms-el-shoppable-image__media" style="width: 100%; height: auto; display: block;" ref="image"/>
+        <div v-for="(hotspot, index) in hotspots"
+             :key="index"
+             class="sw-cms-el-shoppable-image__hotspot"
+             :style="getHotspotPosition(hotspot)">
+        </div>
+        {% endblock %}
+
+        {% block sw_cms_element_shoppable_image_placeholder %}
+        <div v-if="!element.data.media" class="sw-cms-el-shoppable-image__placeholder">
+            <sw-icon name="regular-image" :size="48"></sw-icon>
+            <p>{{ $tc('sw-cms.elements.shoppableImage.placeholderText') }}</p>
+        </div>
+        {% endblock %}
+    </div>
+    {% endblock %}
+</div>
+{% endblock %}

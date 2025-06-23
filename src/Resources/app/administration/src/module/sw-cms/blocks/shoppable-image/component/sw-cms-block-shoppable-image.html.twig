@@ -1,0 +1,8 @@
+{% block sw_cms_block_shoppable_image %}
+<div class="sw-cms-block-shoppable-image">
+    {# Ten slot o nazwie 'content' jest miejscem, gdzie Shopware umieści nasz element #}
+    <slot name="content">
+        <div class="sw-cms-block__missing-element-indicator"></div>
+    </slot>
+</div>
+{% endblock %}

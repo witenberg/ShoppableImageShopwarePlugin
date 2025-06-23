@@ -1,0 +1,39 @@
+{% block sw_cms_element_shoppable_image_config %}
+<div class="sw-cms-el-config-shoppable-image">
+    <sw-media-field
+        :value="element.config.media.value"
+        @update:value="onMediaInput"
+        :allow-multi-select="false"
+    />
+
+    <div class="shoppable-image-editor" v-if="element.config.media.value">
+        <div class="shoppable-image-editor__image-wrapper" ref="imageWrapper" @click="onImageClick">
+            <img v-if="previewSource" :src="previewSource.url" alt="Shoppable Image Preview" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"/>
+            <div v-for="(hotspot, index) in element.config.hotspots.value"
+                 :key="hotspot.id"
+                 class="shoppable-image-editor__hotspot"
+                 :style="{ left: hotspot.positionX + '%', top: hotspot.positionY + '%' }">
+                <sw-icon name="regular-circle" size="16px"></sw-icon>
+            </div>
+        </div>
+
+        <div class="shoppable-image-editor__hotspots-list">
+            <div v-for="(hotspot, index) in element.config.hotspots.value" :key="hotspot.id" class="hotspot-config">
+                <label>Hotspot {{ index + 1 }}</label>
+                <sw-entity-single-select
+                    :key="hotspot.id"
+                    :value="hotspot.productId"
+                    @update:value="onHotspotProductChange($event, hotspot.id)"
+                    entity="product"
+                    label="Associated Product">
+                </sw-entity-single-select>
+                <sw-button-group>
+                    <sw-button size="small" @click="removeHotspot(hotspot.id)">
+                        <sw-icon name="regular-trash"></sw-icon>
+                    </sw-button>
+                </sw-button-group>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
