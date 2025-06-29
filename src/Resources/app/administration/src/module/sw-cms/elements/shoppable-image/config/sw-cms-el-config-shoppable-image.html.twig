@@ -25,7 +25,7 @@
                     :value="hotspot.productId"
                     @update:value="onHotspotProductChange($event, hotspot.id)"
                     entity="product"
-                    label="Associated Product">
+                    label="Przypisane produkty">
                 </sw-entity-single-select>
                 <sw-button-group>
                     <sw-button size="small" @click="removeHotspot(hotspot.id)">
@@ -35,5 +35,23 @@
             </div>
         </div>
     </div>
+
+        <hr class="sw-cms-el-config-shoppable-image__divider">
+
+        <!-- Debug info -->
+        <div style="background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px;">
+            <strong>Debug:</strong> Current roomCategory value: {{ element.config.roomCategory.value }}<br>
+            <strong>Debug:</strong> roomCategory exists: {{ element.config.roomCategory ? 'yes' : 'no' }}
+        </div>
+
+        <sw-select-field
+            label="Rodzaj pokoju"
+            :value="element.config.roomCategory.value"
+            @update:value="onRoomCategoryChange">
+            <option value="all">Wszystkie</option>
+            <option value="living-room">Salon</option>
+            <option value="dining-room">Jadalnia</option>
+            {# Tutaj możesz dodać więcej opcji w przyszłości #}
+        </sw-select-field>
 </div>
 {% endblock %}

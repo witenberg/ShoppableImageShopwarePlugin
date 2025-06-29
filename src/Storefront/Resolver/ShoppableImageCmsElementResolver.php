@@ -43,6 +43,15 @@ class ShoppableImageCmsElementResolver extends AbstractCmsElementResolver
             }
         }
 
+        // Dodajemy obsługę roomCategory - sprawdzamy czy pole istnieje
+        $roomCategoryConfig = $config->get('roomCategory');
+        if ($roomCategoryConfig) {
+            // Debugowanie
+            error_log('ShoppableImage Debug - collect: roomCategory exists with value: ' . $roomCategoryConfig->getValue());
+        } else {
+            error_log('ShoppableImage Debug - collect: roomCategory does not exist in fieldConfig');
+        }
+
         return $collection;
     }
 
@@ -70,6 +79,24 @@ class ShoppableImageCmsElementResolver extends AbstractCmsElementResolver
         }
         $data->set('hotspots', $enrichedHotspots);
         
+        // Odczytujemy konfigurację kategorii i dodajemy ją do danych
+        $config = $slot->getFieldConfig();
+        $roomCategoryConfig = $config->get('roomCategory');
+
+        // Debugowanie - możemy to usunąć później
+        error_log('ShoppableImage Debug - roomCategoryConfig: ' . ($roomCategoryConfig ? 'exists' : 'null'));
+        if ($roomCategoryConfig) {
+            error_log('ShoppableImage Debug - roomCategory value: ' . $roomCategoryConfig->getValue());
+        }
+
+        if ($roomCategoryConfig && $roomCategoryConfig->getValue() !== null) {
+            $roomCategoryValue = $roomCategoryConfig->getValue();
+            $data->set('roomCategory', $roomCategoryValue);
+        } else {
+            // Ustawiamy domyślną wartość, jeśli nic nie zostało wybrane
+            $data->set('roomCategory', 'all');
+        }
+
         $slot->setData($data);
     }
 }

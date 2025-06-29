@@ -49,6 +49,12 @@ Component.register('sw-cms-el-config-shoppable-image', {
             if (!this.element.config.hotspots.value) {
                 this.$set(this.element.config.hotspots, 'value', []);
             }
+            // if (!this.element.config.roomCategory) {
+            //     this.$set(this.element.config, 'roomCategory', {
+            //         source: 'static',
+            //         value: 'all' // Ustawiamy 'all' jako domyślną wartość
+            //     });
+            // }
         },
 
         onMediaInput(mediaId) {
@@ -100,6 +106,11 @@ Component.register('sw-cms-el-config-shoppable-image', {
                 this.$set(hotspot, 'productId', productId);
                 this.$emit('element-update', this.element);
             }
+        },
+
+        onRoomCategoryChange(value) {
+            this.element.config.roomCategory.value = value;
+            this.$emit('element-update', this.element);
         }
     }
 });

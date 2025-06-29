@@ -21,6 +21,10 @@ Shopware.Service('cmsService').registerCmsElement({
             source: 'static',
             value: [] // Tutaj będziemy przechowywać tablicę obiektów hotspot
         },
+        roomCategory: {
+            source: 'static',
+            value: 'all'
+        },
         minHeight: {
             source: 'static',
             value: '340px', // Ustawiamy rozsądną domyślną wartość
