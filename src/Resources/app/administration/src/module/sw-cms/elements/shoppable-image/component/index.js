@@ -57,7 +57,7 @@ Component.register('sw-cms-el-shoppable-image', {
         'element.config.media.value': {
             handler(mediaId) {
                 if (!mediaId) {
-                    this.$set(this.element.data, 'media', null);
+                    this.element.data.media = null;
                     return;
                 }
                 this.updateMediaItem(mediaId);
@@ -76,9 +76,9 @@ Component.register('sw-cms-el-shoppable-image', {
             if (!mediaId) return;
             try {
                 const media = await this.mediaRepository.get(mediaId, Shopware.Context.api);
-                this.$set(this.element.data, 'media', media);
+                this.element.data.media = media;
             } catch (e) {
-                this.$set(this.element.data, 'media', null);
+                this.element.data.media = null;
             }
         },
 

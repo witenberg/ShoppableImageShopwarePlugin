@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="shoppable_image.storefront.resolver" class="ShoppableImage\Storefront\Resolver\ShoppableImageCmsElementResolver">
+        <service id="shoppable_image.storefront.element_resolver" class="ShoppableImage\Storefront\Resolver\ShoppableImageCmsElementResolver">
             <tag name="shopware.cms.data_resolver" />
         </service>
     </services>

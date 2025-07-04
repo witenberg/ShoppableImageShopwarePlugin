@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cms-elements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/Content/Cms/Xml/elements.xsd">
+
+    <element name="shoppable-image" type="shoppable-image">
+        <label>Shoppable Image</label>
+        <label lang="de-DE">Shoppable Bild</label>
+        <config>
+            <media required="true"/>
+            <hotspots/>
+            <roomCategory/>
+        </config>
+    </element>
+
+</cms-elements> 

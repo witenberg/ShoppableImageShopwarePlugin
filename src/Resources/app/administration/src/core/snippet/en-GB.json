@@ -1,0 +1,21 @@
+{
+    "sw-cms": {
+        "blocks": {
+            "custom": {
+                "shoppableImage": {
+                    "label": "Shoppable Image"
+                }
+            }
+        },
+        "elements": {
+            "shoppableImage": {
+                "label": "Shoppable Image Element",
+                "config": {
+                    "roomCategory": {
+                        "label": "Room Category"
+                    }
+                }
+            }
+        }
+    }
+} 

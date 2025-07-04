@@ -1,0 +1,21 @@
+{
+    "sw-cms": {
+        "blocks": {
+            "custom": {
+                "shoppableImage": {
+                    "label": "Shoppable Bild"
+                }
+            }
+        },
+        "elements": {
+            "shoppableImage": {
+                "label": "Shoppable Bild Element",
+                "config": {
+                    "roomCategory": {
+                        "label": "Zimmerkategorie"
+                    }
+                }
+            }
+        }
+    }
+} 

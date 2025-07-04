@@ -35,6 +35,19 @@ Component.register('sw-cms-el-config-shoppable-image', {
 
         uploadTag() {
             return `cms-element-media-config-${this.element.id}`;
+        },
+
+        roomCategoryOptions() {
+            return [
+                { label: 'All Rooms', value: 'all' },
+                { label: 'Living Room', value: 'living-room' },
+                { label: 'Bedroom', value: 'bedroom' },
+                { label: 'Kitchen', value: 'kitchen' },
+                { label: 'Bathroom', value: 'bathroom' },
+                { label: 'Dining Room', value: 'dining-room' },
+                { label: 'Office', value: 'office' },
+                { label: 'Garden', value: 'garden' }
+            ];
         }
     },
 
@@ -47,31 +60,31 @@ Component.register('sw-cms-el-config-shoppable-image', {
             this.initElementConfig('shoppable-image');
             this.initElementData('shoppable-image');
             if (!this.element.config.hotspots.value) {
-                this.$set(this.element.config.hotspots, 'value', []);
+                this.element.config.hotspots.value = [];
             }
-            // if (!this.element.config.roomCategory) {
-            //     this.$set(this.element.config, 'roomCategory', {
-            //         source: 'static',
-            //         value: 'all' // Ustawiamy 'all' jako domyślną wartość
-            //     });
-            // }
+            if (!this.element.config.roomCategory) {
+                this.element.config.roomCategory = {
+                    source: 'static',
+                    value: 'all' // Ustawiamy 'all' jako domyślną wartość
+                };
+            }
         },
 
         onMediaInput(mediaId) {
             if (!this.element.data) {
-                this.$set(this.element, 'data', {});
+                this.element.data = {};
             }
-            this.$set(this.element.config.media, 'value', mediaId);
+            this.element.config.media.value = mediaId;
             this.$emit('element-update', this.element);
         },
 
         onImageRemove() {
             if (!this.element.data) {
-                this.$set(this.element, 'data', {});
+                this.element.data = {};
             }
             this.element.config.media.value = null;
             this.element.config.hotspots.value = [];
-            this.$set(this.element.data, 'media', null);
+            this.element.data.media = null;
             this.$emit('element-update', this.element);
         },
 
@@ -81,7 +94,7 @@ Component.register('sw-cms-el-config-shoppable-image', {
             const x = ((event.clientX - wrapper.getBoundingClientRect().left) / wrapper.offsetWidth) * 100;
             const y = ((event.clientY - wrapper.getBoundingClientRect().top) / wrapper.offsetHeight) * 100;
             if (!this.element.config.hotspots.value) {
-                this.$set(this.element.config.hotspots, 'value', []);
+                this.element.config.hotspots.value = [];
             }
             this.element.config.hotspots.value.push({
                 id: Utils.createId(),
@@ -103,7 +116,7 @@ Component.register('sw-cms-el-config-shoppable-image', {
         onHotspotProductChange(productId, hotspotId) {
             const hotspot = this.element.config.hotspots.value.find(h => h.id === hotspotId);
             if (hotspot) {
-                this.$set(hotspot, 'productId', productId);
+                hotspot.productId = productId;
                 this.$emit('element-update', this.element);
             }
         },

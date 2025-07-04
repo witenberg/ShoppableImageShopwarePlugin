@@ -1,0 +1,21 @@
+{
+    "sw-cms": {
+        "blocks": {
+            "custom": {
+                "shoppableImage": {
+                    "label": "Obraz z hotspotami"
+                }
+            }
+        },
+        "elements": {
+            "shoppableImage": {
+                "label": "Element obrazu z hotspotami",
+                "config": {
+                    "roomCategory": {
+                        "label": "Rodzaj pokoju"
+                    }
+                }
+            }
+        }
+    }
+} 

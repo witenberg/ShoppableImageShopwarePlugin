@@ -4,7 +4,7 @@ import './preview';
 
 Shopware.Service('cmsService').registerCmsElement({
     name: 'shoppable-image',
-    label: 'Shoppable Image Element',
+    label: 'sw-cms.elements.shoppableImage.label',
     component: 'sw-cms-el-shoppable-image',
     configComponent: 'sw-cms-el-config-shoppable-image',
     previewComponent: 'sw-cms-el-preview-shoppable-image',

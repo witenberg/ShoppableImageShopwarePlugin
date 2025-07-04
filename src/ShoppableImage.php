@@ -51,4 +51,33 @@ class ShoppableImage extends Plugin
     public function postUpdate(UpdateContext $updateContext): void
     {
     }
+
+    public function getCmsElementConfig(): array
+    {
+        return [
+            'shoppable-image' => [
+                'name' => 'shoppable-image',
+                'label' => [
+                    'en-GB' => 'Shoppable Image',
+                    'de-DE' => 'Shoppable Bild'
+                ],
+                'defaultConfig' => [
+                    'media' => [
+                        'source' => 'static',
+                        'value' => null,
+                        'required' => true,
+                        'entity' => ['name' => 'media']
+                    ],
+                    'hotspots' => [
+                        'source' => 'static',
+                        'value' => []
+                    ],
+                    'roomCategory' => [
+                        'source' => 'static',
+                        'value' => 'all'
+                    ]
+                ]
+            ]
+        ];
+    }
 }
