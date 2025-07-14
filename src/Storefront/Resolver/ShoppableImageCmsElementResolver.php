@@ -39,6 +39,11 @@ class ShoppableImageCmsElementResolver extends AbstractCmsElementResolver
             if (!empty($productIds)) {
                 $criteria = new Criteria($productIds);
                 $criteria->addAssociation('cover.media');
+                $criteria->addAssociation('seoUrls');
+                $criteria->addAssociation('manufacturer');
+                $criteria->addAssociation('productReviews');
+                $criteria->addAssociation('media.media');
+                $criteria->addAssociation('customMediaObject');
                 $collection->add('shoppable_image_products_' . $slot->getUniqueIdentifier(), ProductDefinition::class, $criteria);
             }
         }
